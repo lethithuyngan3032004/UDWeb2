@@ -1,0 +1,37 @@
+Transactions 
+    Định nghĩa: Transactions là một tập hợp các thao tác trong cơ sở dữ liệu (như thêm, sửa, xóa) được thực hiện như một đơn vị duy nhất. Nếu một thao tác thất bại, toàn bộ giao dịch sẽ bị hủy (rollback) để đảm bảo tính toàn vẹn dữ liệu.
+    Thuộc tính (ACID):
+        -Atomicity: Tất cả thao tác đều thành công hoặc không có gì được thực hiện.
+        -Consistency: Dữ liệu luôn ở trạng thái hợp lệ.
+        -Isolation: Các giao dịch không ảnh hưởng lẫn nhau.
+        -Durability: Dữ liệu được lưu vĩnh viễn sau khi giao dịch hoàn tất.
+    Ưu điểm: Đảm bảo dữ liệu không bị lỗi hoặc mâu thuẫn.
+    Nhược điểm: Có thể làm chậm hệ thống nếu giao dịch phức tạp hoặc kéo dài.
+    Mục đích: Bảo vệ tính toàn vẹn và nhất quán của dữ liệu trong các hoạt động quan trọng như giao dịch tài chính, quản lý đơn hàng.
+
+Procedure 
+    Định nghĩa: Procedure (Stored Procedure) là một tập hợp các câu lệnh SQL được lưu trữ trong cơ sở dữ liệu và có thể được gọi để thực thi nhiều lần. Nó giống như một hàm trong lập trình, nhận tham số đầu vào và trả về kết quả (nếu cần).
+    Ưu điểm:
+        -Tăng hiệu suất (do được biên dịch trước).
+        -Dễ bảo trì và tái sử dụng mã SQL.
+        -Bảo mật tốt hơn (giới hạn quyền truy cập trực tiếp vào bảng).
+    Nhược điểm: Khó gỡ lỗi và không linh hoạt bằng mã ứng dụng bên ngoài.
+    Mục đích: Tự động hóa các tác vụ lặp lại, giảm tải cho ứng dụng phía client, và tăng hiệu suất xử lý trong cơ sở dữ liệu.
+
+Trigger 
+    Định nghĩa: Trigger là một đoạn mã SQL tự động thực thi khi xảy ra một sự kiện cụ thể trong cơ sở dữ liệu (như thêm, sửa, xóa dữ liệu trong bảng). Nó giống như một "cảm biến" để phản ứng với thay đổi dữ liệu.
+    Ưu điểm:
+        -Tự động hóa các tác vụ (như kiểm tra, ghi log).
+        -Đảm bảo tính nhất quán mà không cần can thiệp từ ứng dụng.
+    Nhược điểm:
+        -Có thể làm chậm hệ thống nếu trigger phức tạp.
+        -Khó theo dõi và debug nếu dùng quá nhiều.
+    Mục đích: Thực hiện các hành động tự động dựa trên thay đổi dữ liệu, như kiểm soát quy tắc kinh doanh, ghi nhật ký, hoặc đồng bộ dữ liệu.
+
+Index 
+    Định nghĩa: Index là một cấu trúc dữ liệu trong cơ sở dữ liệu giúp tăng tốc độ truy vấn và tìm kiếm dữ liệu trong bảng. Nó giống như mục lục của sách, cho phép truy cập nhanh mà không cần quét toàn bộ bảng.
+    Ưu điểm: Tăng tốc độ tìm kiếm và lọc dữ liệu.
+    Nhược điểm:
+        -Làm chậm các thao tác thêm, sửa, xóa vì index cần được cập nhật.
+        -Tốn bộ nhớ để lưu trữ index.
+    Mục đích: Tối ưu hóa hiệu suất truy vấn trong các hệ thống có khối lượng dữ liệu lớn hoặc truy vấn thường xuyên.
